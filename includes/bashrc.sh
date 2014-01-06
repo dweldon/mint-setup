@@ -19,7 +19,7 @@ bashrc.update() {
     util.append "$path" "alias ll='ls -l'" true
     util.append "$path" "alias la='ls -lA'" true
     util.append "$path" "alias l='ls -C'" true
-    util.append "$path"
+    util.append "$path" '' true
     util.append "$path" '# editor aliases' true
     util.append "$path" "alias n='nano -w'" true
   fi
