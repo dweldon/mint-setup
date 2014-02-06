@@ -11,7 +11,7 @@ bashrc.update() {
     util.append "$path"
     util.append "$path" '# editor aliases'
     util.append "$path" "alias n='nano -w'"
-    util.append "$path" "alias g='gedit'"
+    util.append "$path" 'g(){ gedit "$@" > /dev/null 2>&1; }'
     util.append "$path"
   else
     sudo touch "$path"
