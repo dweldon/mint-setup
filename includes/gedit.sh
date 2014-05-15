@@ -11,15 +11,15 @@ gedit.install() {
   util.progress 'adding language files'
   pushd "$lang" > /dev/null
   rm -f *.lang
-  util.wget 'https://raw.github.com/LearnBoost/stylus/master/editors/gedit/styl.lang'
-  util.wget 'https://raw.github.com/lbdremy/gedit-jade/master/jade.lang'
-  util.wget 'https://raw.github.com/wavded/gedit-coffeescript/master/coffee_script.lang'
+  util.wget 'https://raw.githubusercontent.com/dweldon/gedit-stylus/master/styl.lang'
+  util.wget 'https://raw.githubusercontent.com/lbdremy/gedit-jade/master/jade.lang'
+  util.wget 'https://raw.githubusercontent.com/wavded/gedit-coffeescript/master/coffee_script.lang'
   popd > /dev/null
 
   util.progress 'adding style files'
   pushd "$styles" > /dev/null
   rm -f *.xml
-  util.wget 'https://raw.github.com/wavded/gedit-coffeescript/master/rubycius-mod.xml'
+  util.wget 'https://raw.githubusercontent.com/wavded/gedit-coffeescript/master/rubycius-mod.xml'
   popd > /dev/null
 
   util.progress 'adding tools'
