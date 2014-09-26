@@ -52,7 +52,7 @@ node.install() {
 
   # install modules
   local module
-  local modules=(meteorite coffee-script jade chokidar)
+  local modules=(coffee-script coffeelint)
   for module in "${modules[@]}"; do
     node.installModule "$module"
   done
