@@ -30,8 +30,8 @@ gedit.execute() {
   util.message 'setting up gedit'
 
   sudo apt-get -y purge gedit gedit-common >& /dev/null
-  util.installPackage 'gedit/saucy'
-  util.installPackage 'gedit-plugins'
+  util.installPackage 'gedit/trusty'
+  util.installPackage 'gedit-plugins/trusty'
 
   gedit.install
 }
