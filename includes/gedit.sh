@@ -1,12 +1,22 @@
 gedit.install() {
+  local plugins="$HOME/.local/share/gedit/plugins"
   local lang="$HOME/.local/share/gtksourceview-3.0/language-specs"
   local styles="$HOME/.local/share/gtksourceview-3.0/styles"
   local tools="$HOME/.config/gedit/tools"
 
   util.progress 'creating directories'
+  mkdir -p "$plugins"
   mkdir -p "$lang"
   mkdir -p "$styles"
   mkdir -p "$tools"
+
+  util.progress 'adding plugins'
+  pushd "$plugins" > /dev/null
+  rm -rf gedit-file-search
+  util.wget 'https://github.com/oliver/gedit-file-search/releases/download/GEDIT_FILE_SEARCH_V1.2/gedit-file-search-1.2.tgz'
+  tar xzf gedit-file-search-*
+  rm *.tgz
+  popd > /dev/null
 
   util.progress 'adding language files'
   pushd "$lang" > /dev/null
