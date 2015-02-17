@@ -14,6 +14,7 @@ git.execute() {
   git config --global color.ui auto
   git config --global push.default matching
   git config --global alias.hist 'log --pretty=format:"%C(yellow)%h%C(reset) %ad %C(green)%s%C(reset) %C(magenta)[%an]%C(reset)%d" --graph --date=short'
+  git config --global alias.cleanup '!git remote prune origin && git gc'
   util.assertExecutable 'git'
   util.assertContains "$HOME/.gitconfig" 'hist'
 }
