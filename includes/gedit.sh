@@ -12,9 +12,15 @@ gedit.install() {
 
   util.progress 'adding plugins'
   pushd "$plugins" > /dev/null
+
   rm -rf gedit-file-search
   util.wget 'https://github.com/oliver/gedit-file-search/releases/download/GEDIT_FILE_SEARCH_V1.2/gedit-file-search-1.2.tgz'
   tar xzf gedit-file-search-*
+
+  rm -rf gedit-fullscreen-margins-*
+  util.wget 'https://github.com/sergejx/gedit-fullscreen-margins/archive/v1.0.tar.gz' 'gedit-fullscreen-margins.tgz'
+  tar xzf gedit-fullscreen-margins.tgz
+
   rm *.tgz
   popd > /dev/null
 
@@ -30,6 +36,8 @@ gedit.install() {
   pushd "$styles" > /dev/null
   rm -f *.xml
   util.wget 'https://raw.githubusercontent.com/wavded/gedit-coffeescript/master/rubycius-mod.xml'
+  util.wget 'https://wiki.gnome.org/Projects/GtkSourceView/StyleSchemes?action=AttachFile&do=get&target=build.xml' 'build.xml'
+  util.wget 'https://wiki.gnome.org/Projects/GtkSourceView/StyleSchemes?action=AttachFile&do=get&target=solarized_light.xml' 'solarized_light.xml'
   popd > /dev/null
 
   util.progress 'adding tools'
