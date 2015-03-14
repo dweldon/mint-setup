@@ -60,5 +60,11 @@ util.progress() {
 
 util.wget() {
   local url="$1"
-  wget -q --no-check-certificate "$url"
+  local filename="$2"
+
+  if [ -z "$filename" ]; then
+    wget -q --no-check-certificate "$url"
+  else
+    wget -q --no-check-certificate "$url" -O "$filename"
+  fi
 }
