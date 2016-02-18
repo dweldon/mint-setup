@@ -6,7 +6,7 @@ source "$DIR/includes/util.sh"
 
 setup() {
   local name
-  local names=(packages bashrc node meteor ffmpeg gedit git disk fonts)
+  local names=(packages bashrc node meteor ffmpeg atom git disk fonts)
   for name in "${names[@]}"; do
     source "$DIR/includes/${name}.sh"
     $name.execute
