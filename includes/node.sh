@@ -1,5 +1,5 @@
 node.latest() {
-  local url='http://nodejs.org/dist/latest/'
+  local url='https://nodejs.org/dist/latest/'
   local pattern1='>node-v.+-linux-x86.tar.gz'
   local pattern2='[0-9]+\.[0-9]+\.[0-9]+'
   echo $(curl --silent "$url" | egrep -o "$pattern1" | egrep -o "$pattern2")
@@ -33,12 +33,11 @@ node.install() {
   fi
 
   local filename=$(node.filename "$version")
-  local url="http://nodejs.org/dist/v${version}/${filename}"
+  local url="https://nodejs.org/dist/v${version}/${filename}"
   local nodeDir="$HOME/local"
 
   # remove previous installation
   util.progress 'removing'
-  rm -rf "$HOME/tmp"
   rm -rf "$HOME/.npm"
   rm -rf "$HOME/.node-gyp"
   rm -rf "$nodeDir"
@@ -56,9 +55,6 @@ node.install() {
   for module in "${modules[@]}"; do
     node.installModule "$module"
   done
-
-  # symlink to node_modules
-  ln -s "$nodeDir/lib/node_modules" "$HOME/.node_modules"
 }
 
 node.execute() {
