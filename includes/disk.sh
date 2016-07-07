@@ -26,9 +26,9 @@ disk.swap() {
 }
 
 disk.hibernate() {
-  local file='/usr/share/polkit-1/actions/org.freedesktop.upower.policy'
+  local file='/etc/polkit-1/localauthority/50-local.d/com.ubuntu.enable-hibernate.pkla'
   sudo cp $file "$file.old"
-  sudo sed -i 's/<allow_active>yes/<allow_active>no/g' $file
+  sudo sed -i 's/ResultActive=yes/ResultActive=no/g' $file
 }
 
 disk.execute() {
