@@ -51,7 +51,7 @@ node.install() {
 
   # install modules
   local module
-  local modules=(coffee-script coffeelint npm-check-updates)
+  local modules=(coffee-script coffeelint npm-check-updates yarn)
   for module in "${modules[@]}"; do
     node.installModule "$module"
   done
