@@ -21,8 +21,9 @@ disk.fstab() {
   printf 'tmpfs /tmp tmpfs defaults,noatime,mode=1777 0 0' | sudo tee -a $file >& /dev/null
 }
 
-disk.swap() {
+disk.swapAndWatches() {
   util.append /etc/sysctl.conf 'vm.swappiness = 10' true
+  util.append /etc/sysctl.conf 'fs.inotify.max_user_watches = 524288' true
 }
 
 disk.hibernate() {
@@ -60,8 +61,8 @@ disk.execute() {
     esac
   done
 
-  util.progress 'changing swapiness'
-  disk.swap
+  util.progress 'changing swapiness and watches'
+  disk.swapAndWatches
 
   util.progress 'disabling hibernate and suspend'
   disk.hibernate
